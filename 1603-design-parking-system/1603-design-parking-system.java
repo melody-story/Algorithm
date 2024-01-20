@@ -9,13 +9,12 @@ class ParkingSystem {
 
     public boolean addCar(int carType) {
         if (space[carType-1] > 0) {
-            space[carType - 1]--;
+            space[carType - 1]-=1;
             return true;
         }
         return false;
     }
 }
-
 /**
  * Your ParkingSystem object will be instantiated and called as such:
  * ParkingSystem obj = new ParkingSystem(big, medium, small);
