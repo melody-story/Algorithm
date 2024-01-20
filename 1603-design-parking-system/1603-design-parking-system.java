@@ -6,9 +6,11 @@ class ParkingSystem {
     }
 
     public boolean addCar(int carType) {
-        if (space[carType-1] ==0){return false;}
-        space[carType-1] --;
-        return true; 
+        if (space[carType-1] > 0) {
+            space[carType - 1]--;
+            return true;
+        }
+        return false;
     }
 }
 
