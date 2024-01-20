@@ -1,8 +1,10 @@
 class ParkingSystem {
-    private int[] space;
+    private int[] space = new int[3];
 
     public ParkingSystem(int big, int medium, int small) {
-        space = new int[]{big, medium,small};
+        space[0]= big;
+        space[1]= medium;
+        space[2]= small;
     }
 
     public boolean addCar(int carType) {
