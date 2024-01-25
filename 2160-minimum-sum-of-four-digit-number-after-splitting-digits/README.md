@@ -30,3 +30,46 @@ The minimum sum can be obtained by the pair [4, 9]: 4 + 9 = 13.
 	<li><code>1000 &lt;= num &lt;= 9999</code></li>
 </ul>
 </div>
+
+---
+
+## solution 1
+
+- 숫자 각 자리 값을 배열로 바꾸기 위하여 String.toCharArray() 메소드 사용
+    - 단점 : 정렬 작업을 위해 Collection객체로 전환해주어야하는데, 이를 위해서는 ArrayList에 배열 각각의 값을 담아주어 O(n)의 시간 복잡도 발생
+    - 개선 : while문을 적용하여, 숫자를 10으로 나누어 떨어지는 나머지로 각자리의 수를 구함.
+
+
+```java
+// 1 ms 40.3 MB
+class Solution {
+    public int minimumSum(int num) {
+        char[] charArray = String.valueOf(num).toCharArray();
+        List<Integer> chars = new ArrayList<>(charArray.length);
+        for (char cha : charArray){
+            chars.add(Character.getNumericValue(cha));
+        }
+        Collections.sort(chars);
+        return (chars.get(0) * 10 + chars.get(2)) + (chars.get(1) * 10 + chars.get(3));
+    }
+}
+```
+
+## improved solution
+```java
+// 0 ms 40.5 MB	
+class Solution {
+    public int minimumSum(int num) {
+        ArrayList<Integer> temp = new ArrayList<>();
+        while (num != 0) {
+            temp.add(num % 10);
+            num = num / 10;
+        }
+        Collections.sort(temp);
+        int num1 = temp.get(0) * 10 + temp.get(2);
+        int num2 = temp.get(1) * 10 + temp.get(3);
+        return num1 + num2;
+
+    }
+}
+```
