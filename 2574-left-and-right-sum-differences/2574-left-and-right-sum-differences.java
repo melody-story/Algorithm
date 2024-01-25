@@ -11,7 +11,8 @@ class Solution {
             rightSum[(length-1)-i] = rightSum[(length-1)-i+1] + nums[(length-1)-i+1];
         }
         for (int i = 0; i < length; i++) {
-            ans[i] = leftSum[i]>rightSum[i]?leftSum[i]-rightSum[i]:rightSum[i]-leftSum[i];
+//                ans[i] = leftSum[i]>rightSum[i]?leftSum[i]-rightSum[i]:rightSum[i]-leftSum[i];
+            ans[i] = Math.abs(leftSum[i]-rightSum[i]);
         }
         return ans;
     }
