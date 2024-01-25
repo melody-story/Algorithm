@@ -1,6 +1,6 @@
 class Solution {
     public int minimumSum(int num) {
-        char[] charArray = new String(String.valueOf(num)).toCharArray();
+        char[] charArray = String.valueOf(num).toCharArray();
         List<Integer> chars = new ArrayList<>(charArray.length);
         for (char cha : charArray){
             chars.add(Character.getNumericValue(cha));
