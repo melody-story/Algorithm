@@ -1,7 +1,5 @@
 class Solution {
     public int minimumSum(int num) {
-        int to =0;
-        int from =0;
         char[] charArray = new String(String.valueOf(num)).toCharArray();
         List<Character> chars = new ArrayList<>(charArray.length);
         for (char cha : charArray){
